@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -ex
+
+# This is the master script for the capsule. When you click "Reproducible Run", the code in this file will execute.
+#python -u unified_descriptors/PNI_ML_prediction.py "$@"
+
+# The previous version of this file was commented-out and follows below:
+#
+# python -u plots/Performance_plot_DNN.py "$@"
+# 
+# # The previous version of this file was commented-out and follows below:
+# #
+python -u unified_descriptors/PNI_ML_prediction.py '2l86_Aiapp_gqd_atomic' '2l86' 'iapp_gqd_atomic' 'GE_GT' 0.001"$@"
+# # 
+# # 
+# 

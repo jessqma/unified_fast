@@ -1,0 +1,31 @@
+metadata_version: 1
+name: Unifying Structural Descriptors for Biological and Bioinspired Nanoscale Complexes
+description: This Package is for the prediction of Protein-Protein Interaction and Protein-Nanoparticle Interaction with a unified structural descriptor set (geometric and graph-theoretical features are used)
+authors:
+- name: Minjeong Cha
+  affiliations:
+  - name: University of Michigan
+- name: Emine Sumeyra Turali Emre
+  affiliations:
+  - name: University of Michigan
+- name: Xiongye Xiao
+  affiliations:
+  - name: University of Southern California
+- name: Ji-Young Kim
+  affiliations:
+  - name: University of Michigan
+- name: Paul Bogdan
+  affiliations:
+  - name: University of Southern California
+- name: J.Scott VanEpps
+  affiliations:
+  - name: University of Michigan
+- name: Angela Violi
+  affiliations:
+  - name: University of Michigan
+- name: Nicholas A. Kotov
+  affiliations:
+  - name: University of Michigan
+corresponding_contributor:
+  name: Nicholas A. Kotov
+  email: kotov@umich.edu

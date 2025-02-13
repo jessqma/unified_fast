@@ -1,0 +1,40 @@
+<Instruction for unified descriptors>
+
+1. GNM.py; GT_curvature.py; local_OPD.py; MFD.py; utility.py are for feature calculation. Those files are used in PPI_descriptors_cal.py and PNI_descriptors_cal.py to construct the descriptor matrices
+
+2. To compute the descriptor matrix, excute
+
+FOR PPI : python uninfied/descriptors/PPI_descriptors_cal.py 'pdb_id' 'chain1' 'chain2'
+ex) python uninfied/descriptors/PPI_descriptors_cal.py '6wzo' 'A' 'B'
+
+FOR PNI : python uninfied/descriptors/PNI_descriptors_cal.py 'pdb_id' 'chain' 'np_name'
+ex) python uninfied/descriptors/PPI_descriptors_cal.py '2l86' 'A' 'GQD7_atomic'
+
+* pdb for protein and np are in pdb_protein or pdb_np folder
+
+Since it took too long to collect all the descriptor matrix, precalculated & processes data are stored in processed_data_training folder
+
+3. To compute the PPI or PNI prediction from ML (RandomForest, XGBoost, DNN), excute
+
+FOR PPI: python unified/descriptors/PPI_ML_prediction.py 'file_name' 'pdb_id' 'data_option' threshold
+ex) python PPI_ML_prediction.py '1c29_AB' '1c29' 'GE_GT' 0.001
+
+FOR PNI: python unified/descriptors/PNI_ML_prediction.py 'file_name' 'pdb_id' 'np name' 'data_option' threshold
+ex) python PNI_ML_prediction.py '2l86_Aiapp_gqd_atomic' '2l86' 'iapp_gqd_atomic' 'GE_GT' 0.001
+
+* file_name: in processed_test_data, letters after "data_feature_" is file_name (ex: for data_feature_1c29_AB.npy --> 1c29_AB is file_name) 
+* data_option: "all", "GE_GT", "GT"
+* the results will show predicted interacting residue number for each pair(.csv) + confusion matrix for computing the score(.npy)
+* the residue number in the result .csv files will match with the pdb file in the data/pdb_protein or data/pdb_np , to make it easy to visualize with any software (vmd or pymol, ect)
+
+4. The DNN models and score parameters are pretrained and saved in dnn_models and model_data_saved
+
+<Instruction for plots>
+
+1. distance_matrix_and_corr_plot.ipynb : plot distance matrix & feature correlation plot in one complex, 
+ex) 1ma9 protein (Fig 1-2)
+
+2. feature_sta.inpyb : plot joint correlation distribution depending on the distance (Fig 2)
+
+3. Performance_plot_DNN.py : 10 fold ROC-AUC curve & performance comparison depending on the descriptor set 
+(All, CH, GE, GT, CH+GE, CH+GT, GE+GT) (Fig 3)
